@@ -1,2 +1,2 @@
 # CodingPractice
- Python study and practice
+ Jasmin's Python study and practice 2024
