@@ -24,7 +24,7 @@ class jasstr:
 
     # TODO- IMPLEMENT ADD
 
-    def add(self, other):
+    def addx(self, other):
         added_data = self.data + other.data
         return jasstr(added_data)
 
@@ -35,30 +35,124 @@ class jasstr:
 
 
     # TODO- IMPLEMENT to_int
-    #a typo 8bit signed is -127 to 127
-'''
     def to_int(self):
-        try:
-            for num_int in self.data:
-                if num_int >= -127 and num_int <= 127:
-                    return int(''.join(map(chr, self.data))) #map is used to apply a given function to all the elements of an iterable(like a list).
-        except ValueError:
-            print("Error: The string contains non-digit characters.")
-            return None
+        value = 0
+        for byte in self.data:
+            # Make sure the byte is a digit
+            if byte < 0x31 or byte > 0x39:
+                raise Exception("String has non-digit chars")
+            digit_value = byte - 0x30
+            value = (value * 10) + digit_value
+        return value
+
+
+    def add(self, rhs):
+        result = ""
+        for i in range(self.data.len()):
+            digit1 = self.data[i] - 0x30
+        for j in range(rhs):
+            digit2 = rhs.data[j] - 0x30
+
+            sum = digit1 + digit2
+            if sum > 9:
+                #first_digit  =
+                second_digit = sum - digit1
+                result += str(sum)
+
+def add(str1, str2):
+    result = ""
+    max = max(len(str1), len(str2))
+    complement = 0
+    for i in range(max)[::-1]:
+        if i >= str1.len():
+            digit1 = 0
+        else:
+            digit1 = str1[i] - 0x30
+        if i >= str2.len():
+            digit2 = 0
+        else:
+            digit2 = str2[i] - 0x30
+        sum = digit1 + digit2 + complement
+        complement = 0
+        if sum > 9:
+            complement = 1
+            sum -= 10
+        result += str(sum)
+    if complement != 0:
+        result += str(1)
+    return result[::-1]
+
+
+    def binary_to_int(self):
+        value = 0
+        for byte in self.data:
+            # Make sure the byte is a digit
+            if byte < 0x31 or byte > 0x39:
+                raise Exception("String has non-digit chars")
+            digit_value = byte - 0x30
+            value = (value * 2) + digit_value
+        return value
+
+
+def divide_str(str1, str2):
+    result = ''
+    divider = str1 - 0x30
+    accumlator = 0
+    for i in str2 - 0x30:
+        if accumlator >= divider:
+            quotient = accumlator // divider
+            accumlator = accumlator % divider
+            result += str(quotient)
+
+        digit = str2[i] - 0x30
+        accumlator += (accumlator * 10) + digit
+    if accumlator != 0:
+        result += str(accumlator // 10)
+    return result
+
+result = divide_str('5', '345')
+print(result)
+
+
+
+#TODO- impliment devide with 2 intigers
+
+def devide_int(int1,int2):
+    result =''
+    devider = int1
+    accumlator = 0
+    for i in range(int2):
+        if accumlator >= devider:
+            quotient = accumlator // int1
+            accumlator = accumlator % int1
+            result += str(quotient)
+        digit = int2[i]
+        accumlator += (accumlator * 10) + digit
+        if accumlator != 0:
+            result += accumlator // 10
+    return result
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 '''
-
-#The right to_int function
-def to_int(self):
-    value = 0
-    for byte in self.data:
-        # Make sure the byte is a digit
-        if byte < 0x31 or byte > 0x39:
-            raise Exception("String has non-digit chars")
-        digit_value = byte - 0x30;
-        value = (value * 10) + digit_value
-    return value
-
 if __name__ == "__main__":
     a = jasstr([0x36, 0x31, 0x32, 0x33, 0x69, 0x41])
     b = jasstr([0x41, 0x32, 0x33, 0x34, 0x69, 0x40])
@@ -68,6 +162,52 @@ if __name__ == "__main__":
     c.print()
     print(a.len())
     print(a.to_int())
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 '''
 #TODO- class practice:
@@ -137,32 +277,8 @@ class Todo_list:
             print(self.user_input2.g) and print(todo_list)
 
 print(Todo_list.__init__(input('add new task: '), input('do you want to mark one of the tasks complete? (y/n)')))
-
-'''
 '''
 
-#practice_code
-
-class Rectangle:
-    def __init__(self, side_lenght, height):
-        self.side_lenght = side_lenght
-        self.height = height
-
-    def calculated_area(self):
-
-        area = int(self.side_lenght) * int(self.height)
-        print(f'the calculated area of the rectangle is {area}')
-
-
-side_length = input('Enter the side length of the rectangle: ')
-height = input('Enter the height of the rectangle: ')
-
-r1 = Rectangle(side_length, height)
-r2 = Rectangle(side_length, height)
-
-print(r1.calculated_area())
-
-'''
 '''
 #More practice
 
@@ -182,6 +298,34 @@ elevator2 = Elevator()
 print(elevator1.elevator_in_the_house())
 
 '''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
