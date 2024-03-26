@@ -8,6 +8,12 @@ class Warrior:
               f'\n Health: {self.health}',
               f'\n Stamina: {self.stamina}')
         print('------------')
+
+    def attack(self,target):
+        target.health -= 3
+        print(f' {self.__class__.__name__} makes a sword attack on {target.__class__.__name__} \n health of {target.__class__.__name__} has been lowered to {target.health}')
+
+
 unit1 = Warrior()
 unit2 = Warrior()
 
@@ -31,6 +37,12 @@ class Mage:
         self.mana -= 20
         print(f'Health of {self.__class__.__name__} has been raised to {self.health}',
               f'\n {self.__class__.__name__} has {self.mana} mana points left')
+
+    def attack(self, target):
+        target.health -= 3
+        print(
+            f' {self.__class__.__name__} makes a sword attack on {target.__class__.__name__} \n health of {target.__class__.__name__} has been lowered to {target.health}')
+
 
 unit4 = Mage(50, 110)
 unit3 = Mage()
