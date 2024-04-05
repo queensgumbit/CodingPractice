@@ -157,7 +157,6 @@ def print_div(dividend, divisor):
 
     print(result)
 
-#deleted the other files.
 
 
 if __name__ == "__main__":
