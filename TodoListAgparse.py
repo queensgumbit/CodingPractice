@@ -1,16 +1,16 @@
-#TODO- to do list using argparse libary! COMMAND-LIKE PROJECT
+#to do list using argparse libary! COMMAND-LIKE PROJECT
 
-#add <Text for the TODO>   ->> Will add a task - DONE
-#modify <ID> <New text>    ->> Will change an existing task TODO-DONE!
-# show <ID>                 ->> Will show a single task text TODO-DONE
+#add <Text for the >   ->> Will add a task
+#modify <ID> <New text>    ->> Will change an existing task
+# show <ID>                 ->> Will show a single task text
 
-#list  ->> Will show all tasks TODO- DONE
+#list  ->> Will show all tasks
 
-# done -> Will mark the task done TODO- DONE
-#new feature - set time to do each task ->> TODO -DONE
-#new feature - how much time has passed ->> TODO - DONE
-#new feature - set the task to half done ->> TODO -DONE
-#new feature - priority -->> TODO - DONE
+# done -> Will mark the task done
+#new feature - set time to do each task
+#new feature - how much time has passed
+#new feature - set the task to half done
+#new feature - priority
 
 #STORING THROUGH PICKLE LIBRARY
 
@@ -202,7 +202,9 @@ def main():
     parser.add_argument('-search', type=str, help='Search for a certain task')
     parser.add_argument('-set_priority',nargs='+', type= str, help= 'Specify the priority of the task')
 
+
     args = parser.parse_args()
+
 
     task_manager = TaskManager()
 
