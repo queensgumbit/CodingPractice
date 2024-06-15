@@ -19,6 +19,7 @@ unit2 = Warrior()
 
 print(unit1.__dict__)
 print(unit2.__dict__)
+
 class Mage:
     def __init__(self, health = 60, mana = 100):
         self.health = health

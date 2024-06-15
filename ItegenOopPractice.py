@@ -13,8 +13,19 @@
             print(line)
 r1 = Rectangle()
 r1.draw()
-'''
 
+
+#inheritance
+
+class Square(Rectangle):
+    def __init__(self, side = 3):
+        super().__init__(side,side)
+
+r2 = Square()
+r2.draw()
+
+'''
+'''
 class Elevator:
     def __init__(self,number_of_floors = 5, current_floor = 3):
         self.number_of_floors = number_of_floors
@@ -33,5 +44,31 @@ class Elevator:
             self.current_floor -= 1
             return f'Elevator is moving on the {self.current_floor}th floor'
 
-E1 = Elevator(7,3)
-print(E1.up())
+
+
+class NewElevator(Elevator):
+    def __init__(self,number_of_floors = 5, current_floor = 3):
+        super().__init__(number_of_floors,current_floor)
+    def move(self,move_floors):
+        if move_floors > self.number_of_floors or move_floors < 1:
+            return 'incorrect floor number'
+        else:
+            self.current_floor = move_floors
+            return f'Elevatort is moving from {self.current_floor - move_floors}st floor to the {self.current_floor}'
+
+
+elevator = NewElevator(10,1)
+print(elevator.move(3))
+
+'''
+
+
+
+
+
+
+
+
+
+
+

@@ -42,3 +42,6 @@ class Alchimist(Mage):
               f'{target.__class__.__name__} healths dropped to {target.health}'
               f'{self.__class__.__name__} health dropped to {self.health}'
               f'there are {self.flaks} alchemy flakes left in the Archimists invetory/')
+
+
+
